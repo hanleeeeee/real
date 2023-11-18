@@ -40,7 +40,7 @@ int main() {
             uniqueArr[uniqueCount++] = arr[i];
         }
         /*else {
-            free(arr[i]); // Áßº¹µÈ ¹®ÀÚ¿­ ¸Ş¸ğ¸® ÇØÁ¦
+            free(arr[i]); // ì¤‘ë³µëœ ë¬¸ìì—´ ë©”ëª¨ë¦¬ í•´ì œ
         }*/
     }
     
