@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char arr[1000000];
+    int alpha[26] = {0}; // 알파벳 빈도수 저장 배열
+    int max = 0;
+    scanf("%s", arr);
+
+    int length = strlen(arr); // 문자열 길이 한 번 계산
+
+    // 문자열을 대문자로 변환하고 빈도수 계산
+    for (int i = 0; i < length; i++) {
+        if (arr[i] >= 'a' && arr[i] <= 'z') {
+            arr[i] -= 32;
+        }
+        int index = arr[i] - 'A';
+        alpha[index]++;
+        if (alpha[index] > max) {
+            max = alpha[index];
+        }
+    }
+
+    int count = 0;
+    char result = '?'; // 기본값 '?'
+    for (int j = 0; j < 26; j++) {
+        if (alpha[j] == max) {
+            if (count > 0) { // 이미 하나의 최대 빈도 알파벳을 찾았다면
+                result = '?';
+                break;
+            }
+            result = j + 'A';
+            count++;
+        }
+    }
+
+    printf("%c\n", result);
+    return 0;
+}

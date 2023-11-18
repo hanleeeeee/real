@@ -1,0 +1,116 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+int compare(int n, int arr[],int number)
+{
+	int count = 0;
+	for (int i = 0; i < number; i++)
+	{
+		if (n == arr[i])
+		{
+			count++;
+		}
+	}
+	return count;
+	
+}
+int main()
+{
+	int arr[100000];
+	int com[100000];
+	int old, newone;
+	scanf("%d", &old);
+	for (int i = 0; i < old; i++)
+	{
+		scanf("%d", &arr[i]);
+
+	}
+	
+	scanf("%d", &newone);
+	
+	for (int i = 0; i < newone; i++)
+	{
+		scanf("%d", &com[i]);
+
+	}
+	
+	for (int j = 0; j < newone; j++)
+	{
+		printf("%d\n", compare(com[j], arr, old));
+	}
+
+
+}
+
+//이렇게 했다가 시간초과로 fail 이진탐색 도입 필요성 확인!
+왜 시간초과? 반복문이 2겹으로 들어가서 n^2의 시간복잡성을 가지기 때문에
+따라서 이진탐색을 통해 시간소요를 줄이고자 한다. 이진탐색을 위해선 오름차순 정렬을 해야하기 때문에 qsort를 도입해야하고 
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <stdlib.h>
+int arrN[100000];
+int arrM[100000];
+int check[100000];
+
+// 이진탐색트리
+int binary_search_tree(int arr[], int key, int size) {
+	int front, rear, pivot;
+	front = 0;
+	rear = size - 1;
+
+	while (1) {
+		pivot = (front + rear) / 2;
+		if (arr[pivot] == key) return 1;
+		if (arr[front] == key) return 1;
+		if (arr[rear] == key) return 1;
+
+		if (arr[pivot] < key)
+			front = pivot + 1;
+		else
+			rear = pivot - 1;
+
+		if (front >= rear)
+			return 0;
+	}
+}
+
+// 퀵 소트에서 사용할 비교함수
+int cmp(const void* a, const void* b) 
+{
+	int num = *(int*)a;
+	int num2 = *(int*)b;
+	if (num > num2)
+	{
+		return 1;
+	}
+	else if (num < num2)
+	{
+		return -1;
+	}
+	else
+		return 0;
+	
+}
+
+int main() {
+	int N, M;
+	int i;
+
+	scanf("%d", &N);
+	for (i = 0; i < N; i++) {
+		scanf("%d", &arrN[i]);
+	}
+
+	scanf("%d", &M);
+	for (i = 0; i < M; i++) {
+		scanf("%d", &arrM[i]);
+	}
+
+	// 퀵 소팅
+	qsort(arrN, N, sizeof(int), cmp);
+
+	for (i = 0; i < M; i++) {
+		printf("%d\n", binary_search_tree(arrN, arrM[i], N));
+	}
+
+	return 0;
+}
