@@ -33,11 +33,11 @@ void BFS(int v, int N)
 	BFSvisit[v] = 1;
 	while (front < rear)//내 생각엔 이게 BFS를 실행하면서 다음에 넘어갈지 말지를 정하는 것같아. 해당 NODE에 있는 모든걸 처리하는거지.
 	{
-		Pop = queue[front];//이것은 이중배열에서 1번째, 2번째 하면서 값들을 순서대로 집어넣는 동작이여
-		front++;
+		Pop = queue[front];//
+		front++;//이건 노드 번호를 Change해주는 거야
 		for (i = 1; i <= N; i++)
 		{
-			if (Graph[Pop][i] == 1 && BFSvisit[i] == 0)//
+			if (Graph[Pop][i] == 1 && BFSvisit[i] == 0)//노드 번호상에서 연결된 다른 노드들의 번호를 인식하는거야
 			{
 				printf("%d", i);
 				queue[rear] = i;
