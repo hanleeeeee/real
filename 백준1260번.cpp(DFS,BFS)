@@ -54,7 +54,7 @@ int main()
 {
 	int N, M, Start;
 	int i, x, y;
-	scanf("%d%d%d", &N, &M, &Start);
+	scanf("%d%d%d", &N, &M, &Start);//각각 노드숫자, 간선수, 시작번호
 	for (int i = 0; i < M; i++)
 	{
 		scanf("%d%d", &x, &y);
