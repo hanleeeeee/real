@@ -1,4 +1,3 @@
-'''
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <math.h>
@@ -37,5 +36,4 @@ int compare(int x, int y)
 	}
 
 }
-'''
 //나는 가장 가까이 있는 값을 찾기 위해서 이를 비교하는 함수를 만들어서 풀었어.
