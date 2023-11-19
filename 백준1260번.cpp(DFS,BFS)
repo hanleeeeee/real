@@ -31,10 +31,10 @@ void BFS(int v, int N)
 
 	rear++;;
 	BFSvisit[v] = 1;
-	while (front < rear)//내 생각엔 이게 BFS를 실행하면서 다음에 넘어갈지 말지를 정하는 것같아. 해당 NODE에 있는 모든걸 처리하는거지.
+	while (front < rear)//front는 레벨을 뜻함 rear는 더이상 연결된게 있는지 없는지를 확인해주는 녀석
 	{
 		Pop = queue[front];//
-		front++;//이건 노드 번호를 Change해주는 거야
+		front++;//이건 레벨을 변화
 		for (i = 1; i <= N; i++)
 		{
 			if (Graph[Pop][i] == 1 && BFSvisit[i] == 0)//노드 번호상에서 연결된 다른 노드들의 번호를 인식하는거야
