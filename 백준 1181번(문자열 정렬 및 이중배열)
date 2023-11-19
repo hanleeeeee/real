@@ -27,7 +27,7 @@ int main() {
     for (int i = 0; i < number; i++) {
         arr[i] = (char*)malloc(50 * sizeof(char));
         scanf("%s", arr[i]);
-    }
+    }//이런식으로 하면 이중배열 문자열을 입력받을 수 있다.
 
     qsort(arr, number, sizeof(char*), compare);
    
@@ -40,7 +40,7 @@ int main() {
             uniqueArr[uniqueCount++] = arr[i];
         }
         /*else {
-            free(arr[i]); // �ߺ��� ���ڿ� �޸� ����
+            free(arr[i]); // 중복된 문자열 메모리 해제
         }*/
     }
     
