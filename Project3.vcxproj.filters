@@ -24,5 +24,8 @@
     <ClCompile Include="백준1260번.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="백준2606번(bfs, dfs).cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

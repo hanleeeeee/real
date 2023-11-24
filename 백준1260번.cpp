@@ -10,7 +10,7 @@ void DFS(int v, int N)
 {
 	int i;
 	DFSvisit[v] = 1;
-	printf("%d", v);
+	printf("%d ", v);
 	for (i = 1; i <= N; i++)
 	{
 		if (Graph[v][i] == 1 && DFSvisit[i] == 0)
@@ -24,7 +24,7 @@ void DFS(int v, int N)
 void BFS(int v, int N)
 {
 	int front = 0, rear = 0, Pop, i;
-	printf("%d", v);
+	printf("%d ", v);
 	queue[0] = v;
 
 	rear++;;
@@ -37,7 +37,7 @@ void BFS(int v, int N)
 		{
 			if (Graph[Pop][i] == 1 && BFSvisit[i] == 0)//
 			{
-				printf("%d", i);
+				printf("%d ", i);
 				queue[rear] = i;
 				rear++;
 				BFSvisit[i] = 1;
